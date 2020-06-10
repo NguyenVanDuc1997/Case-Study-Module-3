@@ -18,6 +18,8 @@ Route::get('/', function () {
     return view('layouts.user.home');
 });
 
+Route::get('/rooms', "RoomTypeController@index")->name('roomType.index');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

@@ -14,5 +14,4 @@ class RoomService
     {
         $this->connectRepository = $roomRepository;
     }
-
 }
