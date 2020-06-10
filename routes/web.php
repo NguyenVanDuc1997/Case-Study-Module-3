@@ -26,6 +26,12 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('admin',function (){
-    return view('layouts/admin/source/index');
+
+
+
+Route::prefix('room')->group( function () {
+    Route::get('/create-room','RoomController@createForm')->name('room.create-form');
+    Route::post('/createRoom','RoomController@createRoom')->name('room.create-room');
+
 });
+
