@@ -25,7 +25,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-<<<<<<< HEAD
+
 
 
 
@@ -34,10 +34,9 @@ Route::prefix('room')->group( function () {
     Route::get('/create-room','RoomController@createForm')->name('room.create-form');
     Route::post('/createRoom','RoomController@createRoom')->name('room.create-room');
 
-=======
 Route::prefix('room')->group(function () {
     Route::get('/create', 'RoomController@showFormCreate')->name('room.show-form-create');
     Route::post('/create', 'RoomController@create')->name('room.create-room');
->>>>>>> 1b4e7083b96fc06a5c42e817b3e85d1dd904d809
+
 });
 
