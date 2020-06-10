@@ -6,6 +6,7 @@ namespace App\Http\Repositories;
 
 use App\Room;
 use App\RoomType;
+use function GuzzleHttp\Promise\all;
 
 class RoomRepository
 {
@@ -15,6 +16,12 @@ class RoomRepository
     {
         $this->connectModel = $room;
     }
+
+    public function createRoom($rooms)
+    {
+        $rooms->save();
+    }
+
 }
 
 

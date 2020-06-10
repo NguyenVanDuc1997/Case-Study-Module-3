@@ -20,4 +20,10 @@ class RoomTypeService
         return $this->roomTypeRepository->getAll();
     }
 
+    public function getById($id)
+    {
+        return $this->roomTypeRepository->find($id);
+
+    }
+
 }

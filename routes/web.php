@@ -18,20 +18,20 @@ Route::get('/', function () {
     return view('layouts.user.home');
 })->name('index');
 
-Route::get('/rooms', "RoomTypeController@index")->name('roomType.index');
+Route::prefix('rooms')->group(function () {
+    Route::get('/', "RoomTypeController@index")->name('roomType.index');
+    Route::get('/{name}', "RoomTypeController@getById")->name('roomType.show-detail');
+});
 
-Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home');
 
 //Auth::routes();
-//
 //Route::get('/home', 'HomeController@index')->name('home');
 
 
 
 Route::prefix('room')->group(function () {
-    Route::get('/create', 'RoomController@create')->name('room.show-form-create');
-//    Route::post('/create', 'RoomController@create')->name('room.create-room');
+    Route::get('/create', 'RoomController@showFormCreate')->name('room.show-form-create');
+    Route::post('/create', 'RoomController@create')->name('room.create-room');
 });
 
 Route::middleware(['auth'])->group(function (){
@@ -41,6 +41,8 @@ Route::middleware(['auth'])->group(function (){
         });
     });
 });
+
+
 
 
 Route::get('logout',function (){

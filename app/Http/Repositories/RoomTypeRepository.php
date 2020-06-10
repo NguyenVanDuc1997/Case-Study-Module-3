@@ -19,4 +19,9 @@ class RoomTypeRepository
     {
         return $this->roomType->all();
     }
+
+    public function find($id)
+    {
+        return $this->roomType->findOrFail($id);
+    }
 }
