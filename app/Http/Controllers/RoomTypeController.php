@@ -18,12 +18,13 @@ class RoomTypeController extends Controller
     public function index()
     {
         $roomTypes = $this->roomTypeService->getAll();
-        return view('layouts.user.rooms', compact('roomTypes'));
+        return view('layouts.user.rooms.list', compact('roomTypes'));
     }
 
-
-    public function getById()
+    public function getById($id)
     {
+        $room = $this->roomTypeService->getById($id);
+        return view('layouts.user.rooms.detail', compact('room'));
 
     }
 

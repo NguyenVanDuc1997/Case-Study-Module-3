@@ -18,7 +18,11 @@ Route::get('/', function () {
     return view('layouts.user.home');
 });
 
-Route::get('/rooms', "RoomTypeController@index")->name('roomType.index');
+Route::prefix('rooms')->group(function () {
+    Route::get('/', "RoomTypeController@index")->name('roomType.index');
+    Route::get('/{name}', "RoomTypeController@getById")->name('roomType.show-detail');
+});
+
 
 Auth::routes();
 
@@ -35,8 +39,6 @@ Route::prefix('room')->group(function () {
     Route::post('/create', 'RoomController@create')->name('room.create-room');
 });
 
-Route::prefix('room-types')->group(function (){
-    Route::get('','');
-});
+
 
 

@@ -22,6 +22,7 @@ class RoomTypeService
 
     public function getById($id)
     {
+        return $this->roomTypeRepository->find($id);
 
     }
 
