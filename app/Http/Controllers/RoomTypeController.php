@@ -44,4 +44,10 @@ class RoomTypeController extends Controller
 
     }
 
+    public function destroyAdminPage($id){
+        $roomType = $this->roomTypeService->getById($id);
+        $this->roomTypeService->destroy($roomType);
+        return redirect()->route('roomType.index');
+    }
+
 }

@@ -5,6 +5,7 @@ namespace App\Http\Services;
 
 
 use App\Http\Repositories\RoomTypeRepository;
+use App\RoomType;
 use Illuminate\Support\Facades\Storage;
 
 class RoomTypeService
@@ -42,6 +43,11 @@ class RoomTypeService
             $roomType->image= $path;
         }
         $this->roomTypeRepository->save($roomType);
+    }
+
+    public function destroy($roomType){
+
+        $this->roomTypeRepository->destroy($roomType);
     }
 
 }

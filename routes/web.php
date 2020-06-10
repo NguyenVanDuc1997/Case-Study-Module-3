@@ -39,6 +39,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/', "RoomTypeController@indexAdminPage")->name('roomType.index');
         Route::get('/{id}/edit','RoomTypeController@editAdminPage')->name('roomType.edit');
         Route::post('/{id}/store','RoomTypeController@storeAdminPage')->name('roomType.store');
+        Route::get('/{id}/delete','RoomTypeController@destroyAdminPage')->name('roomType.destroy');
     });
 });
 
