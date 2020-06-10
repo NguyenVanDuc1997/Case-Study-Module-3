@@ -1,0 +1,25 @@
+<?php
+return [
+    'users'=>"Users",
+    'settings'=>'Settings',
+    'logout'=>'Log out',
+    'core'=>'Core',
+    'dashboard'=>'Dash Board',
+    'interface'=>'Interface',
+    'manager'=>'Manager',
+    'addons'=>'Addons',
+    'charts'=>'Charts',
+    'tables'=>'Tables',
+    'categories'=>'Categories',
+    'list'=>'List',
+    'cart'=>'Cart',
+    'products'=>'Products',
+    'search'=>'Search',
+    'edit'=>'Edit',
+    'profile'=>'Profile',
+    'create'=>'Create',
+    'delete'=>'Delete',
+    'update'=>'Update',
+    'follow'=>'Follow',
+    'cancel'=>'Cancel'
+];

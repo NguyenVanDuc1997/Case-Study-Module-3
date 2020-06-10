@@ -12,4 +12,9 @@ class RoomController extends Controller
     {
         $this->connectService=$roomService;
     }
+
+    public function createForm()
+    {
+        return view('room.form-create');
+    }
 }
