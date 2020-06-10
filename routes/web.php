@@ -37,7 +37,8 @@ Route::prefix('room')->group(function () {
 Route::middleware(['auth'])->group(function () {
     Route::prefix('room-types')->group(function () {
         Route::get('/', "RoomTypeController@indexAdminPage")->name('roomType.index');
-        Route::get('/{id}', "RoomTypeController@getById")->name('roomType.show-detail');
+        Route::get('/{id}/edit','RoomTypeController@editAdminPage')->name('roomType.edit');
+        Route::post('/{id}/store','RoomTypeController@storeAdminPage')->name('roomType.store');
     });
 });
 

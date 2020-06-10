@@ -1,13 +1,11 @@
 @extends('layouts.admin.master');
 @section('content')
 
-
-
     <div class="container-fluid">
         <ol class="breadcrumb mb-4 mt-4">
             <li class="breadcrumb-item"><a href="">Dash</a></li>
-            <li class="breadcrumb-item"><a href="">Rooms</a></li>
-            <li class="breadcrumb-item active">Create</li>
+            <li class="breadcrumb-item"><a href="">Rooms Type</a></li>
+            <li class="breadcrumb-item active">List</li>
         </ol>
         <div class="card mb-4">
             <div class="card-header"><i class="fas fa-table mr-1"></i></div>
@@ -18,6 +16,7 @@
                         <th>STT</th>
                         <th>Name</th>
                         <th>Price</th>
+                        <th>Image</th>
                     </tr>
                     </thead>
                     <tfoot id="data-users">
@@ -26,9 +25,16 @@
                             <td>{{ ++$key }}</td>
                             <td>{{ $roomType->name }}</td>
                             <td>{{ $roomType->price}}</td>
+{{--                            <td><img src="{{asset($roomType->image)}}" alt="non-image"></td>--}}
                             <td>
-                                <a href=""
-                                   class="btn btn-primary">Edit</a>
+                                @if($roomType->image)
+                                    <img src="{{ asset('storage/'.$roomType->image) }}" alt="" style="width: 200px; height: 200px">
+                                @else
+                                    {{'non-image'}}
+                                @endif
+                            </td>
+                            <td>
+                                <a href="{{route('roomType.edit',$roomType->id)}}" class="btn btn-primary">Edit</a>
                                 <a href="" class="btn btn-danger">Delete</a>
                             </td>
                         </tr>
