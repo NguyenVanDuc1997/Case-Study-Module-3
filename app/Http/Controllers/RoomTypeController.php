@@ -20,4 +20,6 @@ class RoomTypeController extends Controller
         $roomTypes = $this->roomTypeService->getAll();
         return view('layouts.user.rooms', compact('roomTypes'));
     }
+
+
 }
