@@ -9,7 +9,7 @@
         <div class="card mb-4">
             <div class="card-header"><i class="fas fa-table mr-1"></i></div>
             <div class="card-body">
-                <form method="post" action="" enctype="multipart/form-data">
+                <form method="post" action="{{route('room.create-room')}}" >
                     @csrf
                     <div class="form-group">
                         <label>Room Name</label>
@@ -18,16 +18,15 @@
                             <p class="text-danger">{{$errors->first('name')}}</p>
                         @endif
                     </div>
-
                     <div class="form-group">
                         <label>Type Room</label>
                         <select class="form-control" name="type">
-                            <option value="">Suite Room</option>
-                            <option value="">Classic Room</option>
-                            <option value="">Family Room</option>
-                            <option value="">Deluxe Room</option>
-                            <option value="">Luxury Room</option>
-                            <option value="">Superior Room</option>
+                            <option value="1">Suite Room</option>
+                            <option value="2">Classic Room</option>
+                            <option value="3">Family Room</option>
+                            <option value="4">Deluxe Room</option>
+                            <option value="5">Luxury Room</option>
+                            <option value="6">Superior Room</option>
                         </select>
                     </div>
                     <div class="form-group">

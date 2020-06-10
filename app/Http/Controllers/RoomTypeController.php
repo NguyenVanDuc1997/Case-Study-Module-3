@@ -21,8 +21,10 @@ class RoomTypeController extends Controller
         return view('layouts.user.rooms', compact('roomTypes'));
     }
 
+
     public function getById()
     {
 
     }
+
 }
