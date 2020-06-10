@@ -17,7 +17,7 @@ class RoomController extends Controller
 
     public function showFormCreate()
     {
-        return view('room.form-create');
+        return view('layouts.admin.room.form-create');
     }
 
     public function create(Request $request)
