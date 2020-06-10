@@ -14,13 +14,14 @@ class RoomController extends Controller
         $this->connectService = $roomService;
     }
 
-    public function showFormCreate()
+ /*   public function showFormCreate()
     {
+
         return view('room.form-create');
     }
 
     public function create()
     {
-
-    }
+        return view('room.form-create', compact('roomType'));
+    }*/
 }
