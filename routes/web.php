@@ -20,12 +20,9 @@ Route::get('/', function () {
 
 Route::prefix('rooms')->group(function () {
     Route::get('/', "RoomTypeController@index")->name('roomType.index');
-    Route::get('/{name}', "RoomTypeController@getById")->name('roomType.show-detail');
+    Route::get('/{id}', "RoomTypeController@getById")->name('roomType.show-detail');
 });
 
-
-//Auth::routes();
-//Route::get('/home', 'HomeController@index')->name('home');
 
 
 Route::prefix('room')->group(function () {
@@ -39,11 +36,13 @@ Route::prefix('room')->group(function () {
 
 Route::middleware(['auth'])->group(function () {
     Route::prefix('room-types')->group(function () {
-        Route::get('', function () {
-            return view('layouts.admin.home');
-        });
+        Route::get('/', "RoomTypeController@indexAdminPage")->name('roomType.index');
+        Route::get('/{id}', "RoomTypeController@getById")->name('roomType.show-detail');
     });
 });
+
+Auth::routes();
+Route::get('/home', 'HomeController@index')->name('home');
 Route::get('logout', function () {
     Auth::logout();
     return view('auth.login');

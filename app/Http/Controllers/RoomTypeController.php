@@ -21,6 +21,11 @@ class RoomTypeController extends Controller
         return view('layouts.user.rooms.list', compact('roomTypes'));
     }
 
+    public function indexAdminPage(){
+        $roomTypes = $this->roomTypeService->getAll();
+        return view('layouts.admin.room-type.index', compact('roomTypes'));
+    }
+
     public function getById($id)
     {
         $room = $this->roomTypeService->getById($id);
