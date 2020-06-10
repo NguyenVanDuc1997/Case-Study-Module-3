@@ -8,9 +8,10 @@ use App\Room;
 
 class RoomRepository
 {
-protected $connectModel;
-public function __construct(Room $room)
-{
-$this->connectModel=$room;
-}
+    protected $connectModel;
+
+    public function __construct(Room $room)
+    {
+        $this->connectModel = $room;
+    }
 }
