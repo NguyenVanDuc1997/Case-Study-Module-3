@@ -17,9 +17,4 @@
         </div>
     </div>
 </nav>
-<div class="hero">
-    <div class="container-wrap d-flex justify-content-end align-items-end">
-        <a href="https://www.youtube.com/watch?v=ism1XqnZJEg" class="icon-video popup-vimeo d-flex justify-content-center align-items-center">
-            <span class="ion-ios-play play"></span>
-        </a>
-    </div>
+
