@@ -17,11 +17,20 @@ class RoomRepository
         $this->connectModel = $room;
     }
 
-    public function createRoom($rooms)
+    public function save($rooms)
     {
         $rooms->save();
     }
 
+    public function findRoomTypeById($id)
+    {
+        return $room = $this->connectModel->findOrFail($id);
+    }
+
+    public function getAllRoomType()
+    {
+        return $roomType = RoomType::all();
+    }
 }
 
 

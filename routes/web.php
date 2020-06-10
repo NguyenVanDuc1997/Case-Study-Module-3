@@ -32,7 +32,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::prefix('room')->group(function () {
     Route::get('/create', 'RoomController@showFormCreate')->name('room.show-form-create');
     Route::post('/create', 'RoomController@create')->name('room.create-room');
-//    Route::get('/edit', 'RoomController@edit')->name('room.edit');
+    Route::get('/{id}/edit', 'RoomController@edit')->name('room.edit');
+    Route::post('/{id}/edit', 'RoomController@change')->name('room.change');
 });
 
 /*Route::prefix('room-types')->group(function () {

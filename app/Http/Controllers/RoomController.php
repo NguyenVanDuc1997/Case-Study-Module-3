@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\RoomRequest;
 use App\Http\Services\RoomService;
 use App\RoomType;
 use Illuminate\Http\Request;
@@ -20,9 +21,24 @@ class RoomController extends Controller
         return view('layouts.admin.room.form-create');
     }
 
-    public function create(Request $request)
+    public function create(RoomRequest $roomRequest)
     {
-        $this->connectService->createRoom($request);
+        $this->connectService->createRoom($roomRequest);
+        toastr()->success('Create Successfully!');
+        return view('layouts.admin.home');
+    }
+
+    public function edit($id)
+    {
+        $roomType = $this->connectService->findRoomType($id);
+        $allRoomType = $this->connectService->getAllRoomType();
+        return view('layouts.admin.room.form-edit', compact('roomType', 'allRoomType'));
+    }
+
+    public function change(RoomRequest $roomRequest, $id)
+    {
+        $room = $this->connectService->findRoomType($id);
+        $this->connectService->update($roomRequest, $room);
         return view('layouts.admin.home');
     }
 }
