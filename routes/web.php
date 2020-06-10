@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('layouts.user.home');
 });
 
 Auth::routes();
@@ -29,3 +29,4 @@ Route::prefix('room')->group(function () {
     Route::get('/create', 'RoomController@create')->name('room.show-form-create');
 //    Route::post('/create', 'RoomController@create')->name('room.create-room');
 });
+
