@@ -31,6 +31,11 @@ class RoomRepository
     {
         return $roomType = RoomType::all();
     }
+
+    public function getAll()
+    {
+        return $this->connectModel->all();
+    }
 }
 
 

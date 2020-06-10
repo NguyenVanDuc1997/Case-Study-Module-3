@@ -34,6 +34,7 @@ Route::prefix('room')->group(function () {
     Route::get('/{id}/edit', 'RoomController@edit')->name('room.edit');
     Route::post('/{id}/edit', 'RoomController@change')->name('room.change');
     Route::post('/{id}/delete','RoomController@delelte')->name('room.delete');
+    Route::get('index','RoomController@index')->name('room.index');
 });
 
 Route::middleware(['auth'])->group(function () {

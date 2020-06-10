@@ -46,4 +46,9 @@ class RoomService
         $room = $this->connectRepository->findRoomById($id);
         $room->delete();
     }
+
+    public function getAllRoom()
+    {
+        return $this->connectRepository->getAll();
+    }
 }

@@ -48,4 +48,10 @@ class RoomController extends Controller
         toastr()->warning('Delete Success!');
         return back();
     }
+
+    public function index()
+    {
+        $room = $this->connectService->getAllRoom();
+        return view('layouts.admin.room.index',compact('room'));
+    }
 }
