@@ -18,15 +18,25 @@ Route::get('/', function () {
     return view('layouts.user.home');
 });
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/rooms', "RoomTypeController@index")->name('roomType.index');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+
+
 Route::prefix('room')->group(function () {
     Route::get('/create', 'RoomController@create')->name('room.show-form-create');
 //    Route::post('/create', 'RoomController@create')->name('room.create-room');
 });
+
+Route::prefix('room-types')->group(function (){
+    Route::get('','');
+});
+
 

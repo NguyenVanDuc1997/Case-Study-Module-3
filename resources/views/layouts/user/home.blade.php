@@ -1,5 +1,5 @@
-@extends('layouts.user.master');
-@section('content');
+@extends('layouts.user.master')
+@section('content')
 <div class="hero">
     <div class="container-wrap d-flex justify-content-end align-items-end">
         <a href="https://www.youtube.com/watch?v=ism1XqnZJEg"
@@ -710,4 +710,4 @@
         </div>
     </div>
 </section>
-@endsection('content');
+@endsection('content')
