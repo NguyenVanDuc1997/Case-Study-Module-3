@@ -28,15 +28,13 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 
-
-
-Route::prefix('room')->group( function () {
-    Route::get('/create-room','RoomController@createForm')->name('room.create-form');
-    Route::post('/createRoom','RoomController@createRoom')->name('room.create-room');
-
 Route::prefix('room')->group(function () {
-    Route::get('/create', 'RoomController@showFormCreate')->name('room.show-form-create');
-    Route::post('/create', 'RoomController@create')->name('room.create-room');
-
+    Route::get('/create', 'RoomController@create')->name('room.show-form-create');
+//    Route::post('/create', 'RoomController@create')->name('room.create-room');
 });
+
+Route::prefix('room-types')->group(function (){
+    Route::get('','');
+});
+
 

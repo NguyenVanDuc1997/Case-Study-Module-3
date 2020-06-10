@@ -9,8 +9,10 @@ use App\Http\Repositories\RoomRepository;
 class RoomService
 {
     protected $connectRepository;
-public function __construct(RoomRepository $roomRepository)
-{
-    $this->connectRepository=$roomRepository;
-}
+
+    public function __construct(RoomRepository $roomRepository)
+    {
+        $this->connectRepository = $roomRepository;
+    }
+
 }
