@@ -24,9 +24,9 @@ class RoomService
         $this->connectRepository->save($room);
     }
 
-    public function findRoomType($id)
+    public function findRoom($id)
     {
-        return $this->connectRepository->findRoomTypeById($id);
+        return $this->connectRepository->findRoomById($id);
     }
 
     public function getAllRoomType()
@@ -39,5 +39,11 @@ class RoomService
         $room->name = $roomRequest->name;
         $room->type = $roomRequest->type;
         $this->connectRepository->save($room);
+    }
+
+    public function deleteRoom($id)
+    {
+        $room = $this->connectRepository->findRoomById($id);
+        $room->delete();
     }
 }

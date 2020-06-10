@@ -22,7 +22,7 @@ class RoomRepository
         $rooms->save();
     }
 
-    public function findRoomTypeById($id)
+    public function findRoomById($id)
     {
         return $room = $this->connectModel->findOrFail($id);
     }

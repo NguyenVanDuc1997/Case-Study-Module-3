@@ -30,15 +30,22 @@ class RoomController extends Controller
 
     public function edit($id)
     {
-        $roomType = $this->connectService->findRoomType($id);
+        $roomType = $this->connectService->findRoom($id);
         $allRoomType = $this->connectService->getAllRoomType();
         return view('layouts.admin.room.form-edit', compact('roomType', 'allRoomType'));
     }
 
     public function change(RoomRequest $roomRequest, $id)
     {
-        $room = $this->connectService->findRoomType($id);
+        $room = $this->connectService->findRoom($id);
         $this->connectService->update($roomRequest, $room);
         return view('layouts.admin.home');
+    }
+
+    public function delete($id)
+    {
+        $this->connectService->deleteRoom($id);
+        toastr()->warning('Delete Success!');
+        return back();
     }
 }

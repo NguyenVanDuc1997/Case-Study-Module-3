@@ -33,6 +33,7 @@ Route::prefix('room')->group(function () {
     Route::post('/create', 'RoomController@create')->name('room.create-room');
     Route::get('/{id}/edit', 'RoomController@edit')->name('room.edit');
     Route::post('/{id}/edit', 'RoomController@change')->name('room.change');
+    Route::post('/{id}/delete','RoomController@delelte')->name('room.delete');
 });
 
 Route::middleware(['auth'])->group(function () {
