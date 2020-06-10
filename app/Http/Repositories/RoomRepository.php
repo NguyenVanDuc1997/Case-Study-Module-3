@@ -5,6 +5,7 @@ namespace App\Http\Repositories;
 
 
 use App\Room;
+use App\RoomType;
 
 class RoomRepository
 {
@@ -15,3 +16,5 @@ class RoomRepository
         $this->connectModel = $room;
     }
 }
+
+
