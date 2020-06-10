@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('layouts.user.home');
-});
+})->name('index');
 
 Route::prefix('rooms')->group(function () {
     Route::get('/', "RoomTypeController@index")->name('roomType.index');
@@ -24,13 +24,8 @@ Route::prefix('rooms')->group(function () {
 });
 
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
+//Auth::routes();
+//Route::get('/home', 'HomeController@index')->name('home');
 
 
 
@@ -39,6 +34,18 @@ Route::prefix('room')->group(function () {
     Route::post('/create', 'RoomController@create')->name('room.create-room');
 });
 
+Route::middleware(['auth'])->group(function (){
+    Route::prefix('room-types')->group(function (){
+        Route::get('',function (){
+            return view('layouts.admin.home');
+        });
+    });
+});
 
 
 
+
+Route::get('logout',function (){
+    Auth::logout();
+    return view('auth.login');
+})->name('logout');
