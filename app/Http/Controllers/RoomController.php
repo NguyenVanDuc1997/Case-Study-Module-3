@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Services\RoomService;
+use App\RoomType;
 use Illuminate\Http\Request;
 
 class RoomController extends Controller
@@ -14,14 +15,14 @@ class RoomController extends Controller
         $this->connectService = $roomService;
     }
 
- /*   public function showFormCreate()
+    public function showFormCreate()
     {
-
         return view('room.form-create');
     }
 
-    public function create()
+    public function create(Request $request)
     {
-        return view('room.form-create', compact('roomType'));
-    }*/
+        $this->connectService->createRoom($request);
+        return view('layouts.admin.home');
+    }
 }

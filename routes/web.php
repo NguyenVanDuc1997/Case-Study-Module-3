@@ -28,7 +28,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::prefix('room')->group(function () {
-    Route::get('/create', 'RoomController@create')->name('room.show-form-create');
-//    Route::post('/create', 'RoomController@create')->name('room.create-room');
+    Route::get('/create', 'RoomController@showFormCreate')->name('room.show-form-create');
+    Route::post('/create', 'RoomController@create')->name('room.create-room');
 });
 
