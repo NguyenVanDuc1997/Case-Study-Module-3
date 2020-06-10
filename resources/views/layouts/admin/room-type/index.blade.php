@@ -25,7 +25,6 @@
                             <td>{{ ++$key }}</td>
                             <td>{{ $roomType->name }}</td>
                             <td>{{ $roomType->price}}</td>
-{{--                            <td><img src="{{asset($roomType->image)}}" alt="non-image"></td>--}}
                             <td>
                                 @if($roomType->image)
                                     <img src="{{ asset('storage/'.$roomType->image) }}" alt="" style="width: 200px; height: 200px">
@@ -35,7 +34,7 @@
                             </td>
                             <td>
                                 <a href="{{route('roomType.edit',$roomType->id)}}" class="btn btn-primary">Edit</a>
-                                <a href="" class="btn btn-danger">Delete</a>
+                                <a href="{{route('roomType.destroy',$roomType->id)}}" class="btn btn-danger" onclick="return confirm('Do you want delete it?')">Delete</a>
                             </td>
                         </tr>
                     @endforeach

@@ -28,4 +28,8 @@ class RoomTypeRepository
     public function save($roomType){
         $roomType->save();
     }
+
+    public function destroy($roomType){
+        $roomType->delete();
+    }
 }
