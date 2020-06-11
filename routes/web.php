@@ -20,9 +20,12 @@ Route::get('/', function () {
 
 
 Route::prefix('rooms')->group(function () {
-    Route::get('/', "RoomTypeController@index")->name('roomType.index');
+    Route::get('/', "RoomTypeController@index")->name('roomTypeUser.index');
     Route::get('/{id}', "RoomTypeController@getById")->name('roomType.show-detail');
 });
+
+Route::get('/booking', "ReservationController@showFormBooking")->name('booking.create');
+
 
 Auth::routes();
 

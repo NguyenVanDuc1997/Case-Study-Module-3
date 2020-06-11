@@ -2,29 +2,19 @@
 @section('content')
     <div class="hero-wrap" style="background-image: url({{asset('images/bg_1.jpg')}});">
         <div class="overlay"></div>
-        {{--    <div class="container">--}}
-        {{--        <div class="row no-gutters slider-text d-flex align-itemd-end justify-content-center">--}}
-        {{--            <div class="col-md-9 ftco-animate text-center d-flex align-items-end justify-content-center">--}}
-        {{--                <div class="text">--}}
-        {{--                    <p class="breadcrumbs mb-2"><span class="mr-2"><a href="index.html">Home</a></span> <span>Restaurant</span></p>--}}
-        {{--                    <h1 class="mb-4 bread">Restaurant</h1>--}}
-        {{--                </div>--}}
-        {{--            </div>--}}
-        {{--        </div>--}}
-        {{--    </div>--}}
     </div>
-
+x
     <section class="ftco-booking ftco-section ftco-no-pt ftco-no-pb">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 pr-1 aside-stretch">
-                    <form action="#" class="booking-form">
+                    <form action="{{route('booking.create')}}" method="get" class="booking-form">
                         <div class="row">
                             <div class="col-md d-flex py-md-4">
                                 <div class="form-group align-self-stretch d-flex align-items-end">
                                     <div class="wrap bg-white align-self-stretch py-3 px-4">
                                         <label for="#">Check-in Date</label>
-                                        <input type="text" class="form-control checkin_date"
+                                        <input type="text" name="check_in_date" class="form-control checkin_date"
                                                placeholder="Check-in date">
                                     </div>
                                 </div>
@@ -33,7 +23,7 @@
                                 <div class="form-group align-self-stretch d-flex align-items-end">
                                     <div class="wrap bg-white align-self-stretch py-3 px-4">
                                         <label for="#">Check-out Date</label>
-                                        <input type="text" class="form-control checkout_date"
+                                        <input type="text" name="check_out_date" class="form-control checkout_date"
                                                placeholder="Check-out date">
                                     </div>
                                 </div>
@@ -47,9 +37,10 @@
                                                 <div class="icon"><span class="ion-ios-arrow-down"></span></div>
                                                 <select name="room_type" id="" class="form-control">
                                                     @foreach($roomTypes as $roomType)
-                                                    <option value="{{$roomType->id}}" <?php if ($roomType->id == $room->id) {
-                                                        echo "selected";
-                                                    }?>>{{$roomType->name}}</option>
+                                                        <option
+                                                            value="{{$roomType->id}}" <?php if ($roomType->id == $room->id) {
+                                                            echo "selected";
+                                                        }?>>{{$roomType->name}}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
@@ -79,8 +70,9 @@
                             </div>
                             <div class="col-md d-flex">
                                 <div class="form-group d-flex align-self-stretch">
-                                    <a href="#"
-                                       class="btn btn-black py-5 py-md-3 px-4 align-self-stretch d-block"><span>Check Availability <small>Best Price Guaranteed!</small></span></a>
+                                    <button type="submit"
+                                            class="btn btn-black py-5 py-md-3 px-4 align-self-stretch d-block"><span>Check Availability <small>Best Price Guaranteed!</small></span>
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -129,7 +121,8 @@
                             <h3 class="mb-4">Take A Tour</h3>
                             <div class="block-16">
                                 <figure>
-                                    <img src="{{asset('images/' . $room->image)}}" alt="Image placeholder" class="img-fluid">
+                                    <img src="{{asset('storage/' . $room->image)}}" alt="Image placeholder"
+                                         class="img-fluid">
                                     <a href="https://vimeo.com/45830194" class="play-button popup-vimeo"><span
                                             class="icon-play"></span></a>
                                 </figure>
