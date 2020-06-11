@@ -24,4 +24,12 @@ class RoomTypeRepository
     {
         return $this->roomType->findOrFail($id);
     }
+
+    public function save($roomType){
+        $roomType->save();
+    }
+
+    public function destroy($roomType){
+        $roomType->delete();
+    }
 }

@@ -3,5 +3,5 @@
 
 
 
-
+    @toastr_render
 @endsection
