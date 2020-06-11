@@ -41,6 +41,10 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/{id}/store','RoomTypeController@storeAdminPage')->name('roomType.store');
         Route::get('/{id}/delete','RoomTypeController@destroyAdminPage')->name('roomType.destroy');
     });
+
+    Route::prefix('book-room')->group(function (){
+        Route::get('/');
+    });
 });
 
 Auth::routes();
