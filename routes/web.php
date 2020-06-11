@@ -16,21 +16,24 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('layouts.user.home');
-})->name('index');
+})->name('home.show');
+
 
 Route::prefix('rooms')->group(function () {
     Route::get('/', "RoomTypeController@index")->name('roomType.index');
     Route::get('/{id}', "RoomTypeController@getById")->name('roomType.show-detail');
 });
 
+Auth::routes();
 
+Route::get('/home', 'HomeController@index')->name('home');
 
 Route::prefix('room')->group(function () {
     Route::get('/create', 'RoomController@showFormCreate')->name('room.show-form-create');
     Route::post('/create', 'RoomController@create')->name('room.create-room');
     Route::get('/{id}/edit', 'RoomController@edit')->name('room.edit');
     Route::post('/{id}/edit', 'RoomController@change')->name('room.change');
-    Route::post('/{id}/delete','RoomController@delelte')->name('room.delete');
+    Route::get('/{id}/delete','RoomController@delete')->name('room.delete');
     Route::get('index','RoomController@index')->name('room.index');
 });
 
