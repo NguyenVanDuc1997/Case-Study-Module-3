@@ -24,9 +24,9 @@
                             <td>{{ $value->name }}</td>
                             <td>{{ $value->roomType->name}}</td>
                             <td>
-                                <a href=""
+                                <a href="{{route('room.edit',$value->id)}}"
                                    class="btn btn-primary">Edit</a>
-                                <a href="" class="btn btn-danger">????</a>
+                                <a href="{{route('room.delete',$value->id)}}" class="btn btn-danger">Delete</a>
                             </td>
                         </tr>
                     @endforeach

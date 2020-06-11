@@ -39,7 +39,7 @@ class RoomController extends Controller
     {
         $room = $this->connectService->findRoom($id);
         $this->connectService->update($roomRequest, $room);
-        return view('layouts.admin.home');
+        return redirect()->route('room.index');
     }
 
     public function delete($id)

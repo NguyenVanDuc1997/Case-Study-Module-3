@@ -9,7 +9,7 @@
         <div class="card mb-4">
             <div class="card-header"><i class="fas fa-table mr-1"></i></div>
             <div class="card-body">
-                <form method="post" action="{{route('room.change')}}">
+                <form method="post" action="{{route('room.change',$roomType->id)}}">
                     @csrf
                     <div class="form-group">
                         <label>Room Name</label>
