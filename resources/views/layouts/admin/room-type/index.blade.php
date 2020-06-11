@@ -8,7 +8,7 @@
             <li class="breadcrumb-item active">List</li>
         </ol>
         <div class="card mb-4">
-            <div class="card-header"><i class="fas fa-table mr-1"></i></div>
+            <div class="card-header"><i class="fas fa-table mr-1"></i><a href="{{route('roomType.show-form-create')}}" class="btn btn-success">Create</a></div>
             <div class="card-body">
                 <table class="table table-bordered clone2" id="dataTable" width="100%" cellspacing="0">
                     <thead>

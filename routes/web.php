@@ -27,7 +27,7 @@ Route::prefix('rooms')->group(function () {
 
 Route::prefix('room')->group(function () {
     Route::get('/create', 'RoomController@showFormCreate')->name('room.show-form-create');
-    Route::post('/create', 'RoomController@create')->name('room.create-room');
+    Route::post('/create', 'RoomController@create')->name('room.create');
     Route::get('/{id}/edit', 'RoomController@edit')->name('room.edit');
     Route::post('/{id}/edit', 'RoomController@change')->name('room.change');
     Route::get('/{id}/delete','RoomController@delete')->name('room.delete');
@@ -40,6 +40,8 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/{id}/edit','RoomTypeController@editAdminPage')->name('roomType.edit');
         Route::post('/{id}/store','RoomTypeController@storeAdminPage')->name('roomType.store');
         Route::get('/{id}/delete','RoomTypeController@destroyAdminPage')->name('roomType.destroy');
+        Route::get('/create', 'RoomTypeController@showFormCreate')->name('roomType.show-form-create');
+       Route::post('/create', 'RoomTypeController@create')->name('roomType.create');
     });
 });
 

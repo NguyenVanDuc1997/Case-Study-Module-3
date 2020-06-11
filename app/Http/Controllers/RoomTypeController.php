@@ -50,4 +50,14 @@ class RoomTypeController extends Controller
         return redirect()->route('roomType.index');
     }
 
+    public function showFormCreate()
+    {
+        return view('layouts.admin.room-type.form-create');
+    }
+
+    public function create()
+    {
+
+    }
+
 }
