@@ -25,7 +25,7 @@ class RoomController extends Controller
     {
         $this->connectService->createRoom($roomRequest);
         toastr()->success('Create Successfully!');
-        return view('layouts.admin.home');
+        return redirect()->route('room.index');
     }
 
     public function edit($id)

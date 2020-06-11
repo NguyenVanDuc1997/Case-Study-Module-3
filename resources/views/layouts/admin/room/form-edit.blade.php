@@ -30,7 +30,7 @@
                     </div>
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary">Update</button>
-                        <a href="" class="btn btn-secondary">Cancel</a>
+                        <a href="{{route('room.index')}}" class="btn btn-secondary">Cancel</a>
                     </div>
                 </form>
             </div>
