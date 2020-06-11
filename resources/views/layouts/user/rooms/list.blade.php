@@ -6,7 +6,6 @@
             <div class="row no-gutters slider-text d-flex align-itemd-end justify-content-center">
                 <div class="col-md-9 ftco-animate text-center d-flex align-items-end justify-content-center">
                     <div class="text">
-                        <p class="breadcrumbs mb-2"><span class="mr-2"><a href="index.html">Home</a></span> <span>About</span></p>
                         <h1 class="mb-4 bread">Rooms</h1>
                     </div>
                 </div>
@@ -26,7 +25,7 @@
                 @foreach($roomTypes as $roomType)
                 <div class="col-lg-6">
                     <div class="room-wrap d-md-flex">
-                        <a href="{{route('roomType.show-detail', ["$roomType->id"])}}" class="img" style="background-image: url({{asset("images/" .$roomType->image)}});"></a>
+                        <a href="{{route('roomType.show-detail', ["$roomType->id"])}}" class="img" style="background-image: url({{asset("storage/" .$roomType->image)}});"></a>
                         <div class="half left-arrow d-flex align-items-center">
                             <div class="text p-4 p-xl-5 text-center">
                                 <p class="star mb-0"><span class="ion-ios-star"></span><span class="ion-ios-star"></span><span class="ion-ios-star"></span><span class="ion-ios-star"></span><span class="ion-ios-star"></span></p>

@@ -27,25 +27,27 @@ class RoomTypeService
         return $this->roomTypeRepository->find($id);
     }
 
-    public function update($roomTypeRequest,$roomType){
-        $roomType->name= $roomTypeRequest->name;
-        $roomType->price= $roomTypeRequest->price;
-        $roomType->description= $roomTypeRequest->description;
+    public function update($roomTypeRequest, $roomType)
+    {
+        $roomType->name = $roomTypeRequest->name;
+        $roomType->price = $roomTypeRequest->price;
+        $roomType->description = $roomTypeRequest->description;
 
 
-        if ($roomTypeRequest->hasFile('image')){
-            $currentImg= $roomTypeRequest->image;
-            if ($currentImg){
-                Storage::delete('/public/'.$currentImg);
+        if ($roomTypeRequest->hasFile('image')) {
+            $currentImg = $roomType->image;
+            if ($currentImg) {
+                Storage::delete("$currentImg");
             }
             $image = $roomTypeRequest->file('image');
-            $path=$image->store('images','public');
-            $roomType->image= $path;
+            $path = $image->store('images', 'public');
+            $roomType->image = $path;
         }
         $this->roomTypeRepository->save($roomType);
     }
 
-    public function destroy($roomType){
+    public function destroy($roomType)
+    {
 
         $this->roomTypeRepository->destroy($roomType);
     }
