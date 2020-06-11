@@ -23,8 +23,9 @@ class RoomTypeController extends Controller
 
     public function getById($id)
     {
+        $roomTypes = $this->roomTypeService->getAll();
         $room = $this->roomTypeService->getById($id);
-        return view('layouts.user.rooms.detail', compact('room'));
+        return view('layouts.user.rooms.detail', compact(['room', 'roomTypes']));
 
     }
 

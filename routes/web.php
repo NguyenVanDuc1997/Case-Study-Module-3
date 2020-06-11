@@ -16,23 +16,17 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('layouts.user.home');
-});
+})->name('home.show');
 
 Route::prefix('rooms')->group(function () {
     Route::get('/', "RoomTypeController@index")->name('roomType.index');
-    Route::get('/{name}', "RoomTypeController@getById")->name('roomType.show-detail');
+    Route::get('/{id}', "RoomTypeController@getById")->name('roomType.show-detail');
 });
 
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-
 
 Route::prefix('room')->group(function () {
     Route::get('/create', 'RoomController@showFormCreate')->name('room.show-form-create');
