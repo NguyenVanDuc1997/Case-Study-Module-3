@@ -39,10 +39,10 @@ Route::prefix('room')->group(function () {
 
 Route::middleware(['auth'])->group(function () {
     Route::prefix('room-types')->group(function () {
-        Route::get('/', "RoomTypeController@indexAdminPage")->name('roomType.index');
-        Route::get('/{id}/edit','RoomTypeController@editAdminPage')->name('roomType.edit');
-        Route::post('/{id}/store','RoomTypeController@storeAdminPage')->name('roomType.store');
-        Route::get('/{id}/delete','RoomTypeController@destroyAdminPage')->name('roomType.destroy');
+        Route::get('/', "AdminRoomTypeController@index")->name('roomType.admin.index');
+        Route::get('/{id}/edit','AdminRoomTypeController@edit')->name('roomType.admin.edit');
+        Route::post('/{id}/store','AdminRoomTypeController@store')->name('roomType.admin.store');
+        Route::get('/{id}/delete','AdminRoomTypeController@destroy')->name('roomType.admin.destroy');
     });
 
     Route::prefix('book-room')->group(function (){
