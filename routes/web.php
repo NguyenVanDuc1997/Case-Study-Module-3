@@ -19,10 +19,23 @@ Route::get('/', function () {
 })->name('home.show');
 
 
+Auth::routes();
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('logout', function () {
+    Auth::logout();
+    return view('auth.login');
+})->name('logout');
+
+Auth::routes();
+Route::get('/home', 'HomeController@index')->name('home');
+
+
+
 Route::prefix('rooms')->group(function () {
     Route::get('/', "RoomTypeController@index")->name('roomTypeUser.index');
     Route::get('/{id}', "RoomTypeController@getById")->name('roomType.show-detail');
 });
+
 
 Route::get('/booking', "ReservationController@showFormBooking")->name('booking.create');
 
@@ -42,16 +55,11 @@ Route::prefix('room')->group(function () {
 
 Route::middleware(['auth'])->group(function () {
     Route::prefix('room-types')->group(function () {
-        Route::get('/', "RoomTypeController@indexAdminPage")->name('roomType.index');
-        Route::get('/{id}/edit','RoomTypeController@editAdminPage')->name('roomType.edit');
-        Route::post('/{id}/store','RoomTypeController@storeAdminPage')->name('roomType.store');
-        Route::get('/{id}/delete','RoomTypeController@destroyAdminPage')->name('roomType.destroy');
+        Route::get('/', "AdminRoomTypeController@index")->name('roomType.admin.index');
+        Route::get('/{id}/edit','AdminRoomTypeController@edit')->name('roomType.admin.edit');
+        Route::post('/{id}/store','AdminRoomTypeController@store')->name('roomType.admin.store');
+        Route::get('/{id}/delete','AdminRoomTypeController@destroy')->name('roomType.admin.destroy');
     });
 });
 
-Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('logout', function () {
-    Auth::logout();
-    return view('auth.login');
-})->name('logout');
+

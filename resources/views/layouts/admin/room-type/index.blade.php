@@ -8,7 +8,6 @@
             <li class="breadcrumb-item active">List</li>
         </ol>
         <div class="card mb-4">
-            <div class="card-header"><i class="fas fa-table mr-1"></i></div>
             <div class="card-body">
                 <table class="table table-bordered clone2" id="dataTable" width="100%" cellspacing="0">
                     <thead>
@@ -33,8 +32,8 @@
                                 @endif
                             </td>
                             <td>
-                                <a href="{{route('roomType.edit',$roomType->id)}}" class="btn btn-primary">Edit</a>
-                                <a href="{{route('roomType.destroy',$roomType->id)}}" class="btn btn-danger" onclick="return confirm('Do you want delete it?')">Delete</a>
+                                <a href="{{route('roomType.admin.edit',$roomType->id)}}" class="btn btn-primary">Edit</a>
+                                <a href="{{route('roomType.admin.destroy',$roomType->id)}}" class="btn btn-danger" onclick="return confirm('Do you want delete it?')">Delete</a>
                             </td>
                         </tr>
                     @endforeach
