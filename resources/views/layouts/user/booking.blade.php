@@ -16,7 +16,8 @@
     <section class="ftco-section">
         <div class="container">
             <div class="row justify-content-md-center">
-                <form>
+                <form action="{{route('booking.store')}}" method="post">
+                    @csrf
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="last_name">Last name</label>
@@ -54,13 +55,13 @@
 
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <label>Check-in (mm/dd/yyyy)</label>
-                            <input type="text" name="check_in_date" value="{{$checkInDate}}" class="form-control checkin_date"
+                            <label>Check-in</label>
+                            <input type="date" name="check_in_date" value="{{$checkInDate}}" class="form-control"
                                    placeholder="Check-in date">
                         </div>
                         <div class="form-group col-md-6">
-                            <label>Check-out (mm/dd/yyyy)</label>
-                            <input type="text" name="check_out_date" value="{{$checkOutDate}}" class="form-control checkout_date"
+                            <label>Check-out</label>
+                            <input type="date" name="check_out_date" value="{{$checkOutDate}}" class="form-control"
                                    placeholder="Check-out date">
                         </div>
                     </div>

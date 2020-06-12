@@ -15,4 +15,9 @@ class ReservationRepository
         $this->reservation = $reservation;
     }
 
+    public function store($reservation)
+    {
+        $reservation->save();
+    }
+
 }

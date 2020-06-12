@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddColumnStatusToReservationsTable extends Migration
+class AddColumnStatusWithDefaultValueToReservationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class AddColumnStatusToReservationsTable extends Migration
     public function up()
     {
         Schema::table('reservations', function (Blueprint $table) {
-            $table->tinyInteger('status')->after('check_out')->nullable();
+            $table->tinyInteger('status')->after('check_out')->nullable()->default('1');
         });
     }
 
@@ -25,7 +25,7 @@ class AddColumnStatusToReservationsTable extends Migration
      */
     public function down()
     {
-        Schema::table('reservations', function (Blueprint $table) {
+        Schema::table('=reservations', function (Blueprint $table) {
             //
         });
     }

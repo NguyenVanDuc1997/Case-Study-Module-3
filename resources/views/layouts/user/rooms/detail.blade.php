@@ -14,7 +14,7 @@ x
                                 <div class="form-group align-self-stretch d-flex align-items-end">
                                     <div class="wrap bg-white align-self-stretch py-3 px-4">
                                         <label for="#">Check-in Date</label>
-                                        <input type="text" name="check_in_date" class="form-control checkin_date"
+                                        <input type="date" name="check_in_date" class="form-control"
                                                placeholder="Check-in date">
                                     </div>
                                 </div>
@@ -23,7 +23,7 @@ x
                                 <div class="form-group align-self-stretch d-flex align-items-end">
                                     <div class="wrap bg-white align-self-stretch py-3 px-4">
                                         <label for="#">Check-out Date</label>
-                                        <input type="text" name="check_out_date" class="form-control checkout_date"
+                                        <input type="date" name="check_out_date" class="form-control"
                                                placeholder="Check-out date">
                                     </div>
                                 </div>

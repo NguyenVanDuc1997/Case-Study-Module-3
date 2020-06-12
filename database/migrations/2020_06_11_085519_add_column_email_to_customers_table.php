@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddColumnStatusToReservationsTable extends Migration
+class AddColumnEmailToCustomersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddColumnStatusToReservationsTable extends Migration
      */
     public function up()
     {
-        Schema::table('reservations', function (Blueprint $table) {
-            $table->tinyInteger('status')->after('check_out')->nullable();
+        Schema::table('customers', function (Blueprint $table) {
+            $table->string('email')->nullable();
         });
     }
 
@@ -25,7 +25,7 @@ class AddColumnStatusToReservationsTable extends Migration
      */
     public function down()
     {
-        Schema::table('reservations', function (Blueprint $table) {
+        Schema::table('customers', function (Blueprint $table) {
             //
         });
     }
