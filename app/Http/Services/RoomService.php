@@ -37,7 +37,7 @@ class RoomService
     public function update($roomRequest, $room)
     {
         $room->name = $roomRequest->name;
-        $room->type = $roomRequest->type;
+        $room->room_type_id = $roomRequest->type;
         $this->connectRepository->save($room);
     }
 

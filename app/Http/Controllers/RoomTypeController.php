@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\RoomTypeRequest;
 use App\Http\Services\RoomTypeService;
 use App\RoomType;
 use Illuminate\Http\Request;
@@ -23,9 +24,12 @@ class RoomTypeController extends Controller
 
     public function getById($id)
     {
+        $roomTypes = $this->roomTypeService->getAll();
         $room = $this->roomTypeService->getById($id);
-        return view('layouts.user.rooms.detail', compact('room'));
+        return view('layouts.user.rooms.detail', compact(['room', 'roomTypes']));
 
     }
+
+
 
 }

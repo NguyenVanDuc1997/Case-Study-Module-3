@@ -36,8 +36,8 @@
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">About</h6>
-                <a class="collapse-item" href="buttons.html">Room</a>
-                <a class="collapse-item" href="cards.html">Room Type</a>
+                <a class="collapse-item" href="{{route('room.index')}}">Room</a>
+                <a class="collapse-item" href="{{route('roomType.admin.index')}}">Room Type</a>
             </div>
         </div>
     </li>
