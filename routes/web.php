@@ -24,8 +24,8 @@ Route::prefix('rooms')->group(function () {
 });
 
 
-//Auth::routes();
-//Route::get('/home', 'HomeController@index')->name('home');
+Auth::routes();
+Route::get('/home', 'HomeController@index')->name('home');
 
 
 Route::prefix('room')->group(function () {
@@ -48,3 +48,15 @@ Route::get('logout', function () {
     Auth::logout();
     return view('auth.login');
 })->name('logout');
+
+Route::prefix('users')->group(function (){
+    Route::get('/','UserController@getAll')->name('users.list');
+    Route::get('/{id}/delete','UserController@delete')->name('users.delete');
+    Route::get('/{id}/change-password','UserController@showFormChangePassword')->name('users.showFormChangePassword');
+    Route::post('/{id}/change-password','UserController@changePassword')->name('users.changePassword');
+    Route::get('{id}/edit', 'UserController@update')->name('users.update');
+    Route::post('{id}/edit', 'UserController@edit')->name('users.edit');
+    Route::get('/create', 'UserController@create')->name('users.create');
+    Route::post('/create', 'UserController@store')->name('users.store');
+    Route::get('/search', 'UserController@search')->name('users.search');
+});
