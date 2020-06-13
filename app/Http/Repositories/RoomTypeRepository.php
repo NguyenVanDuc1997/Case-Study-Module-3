@@ -5,6 +5,7 @@ namespace App\Http\Repositories;
 
 
 use App\RoomType;
+use Illuminate\Support\Facades\DB;
 
 class RoomTypeRepository
 {
@@ -25,11 +26,14 @@ class RoomTypeRepository
         return $this->roomType->findOrFail($id);
     }
 
-    public function save($roomType){
+    public function save($roomType)
+    {
         $roomType->save();
     }
 
-    public function destroy($roomType){
+    public function destroy($roomType)
+    {
+        DB::table('rooms')->where('room_type_id', '=', $roomType->id)->delete();
         $roomType->delete();
     }
 }
