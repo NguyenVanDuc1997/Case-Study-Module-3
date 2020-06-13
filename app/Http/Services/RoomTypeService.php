@@ -33,12 +33,7 @@ class RoomTypeService
         $roomType->price = $roomTypeRequest->price;
         $roomType->description = $roomTypeRequest->description;
 
-
         if ($roomTypeRequest->hasFile('image')) {
-            $currentImg = $roomType->image;
-            if ($currentImg) {
-                Storage::delete("$currentImg");
-            }
             $image = $roomTypeRequest->file('image');
             $path = $image->store('images', 'public');
             $roomType->image = $path;
@@ -51,5 +46,6 @@ class RoomTypeService
 
         $this->roomTypeRepository->destroy($roomType);
     }
+
 
 }

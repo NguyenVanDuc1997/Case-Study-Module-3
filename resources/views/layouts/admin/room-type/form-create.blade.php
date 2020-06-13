@@ -9,11 +9,11 @@
         <div class="card mb-4">
 
             <div class="card-body">
-                <form method="post" action="{{route('roomType.admin.update',$roomType->id)}}" enctype="multipart/form-data">
+                <form method="post" action="{{route('roomType.admin.store')}}" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
                         <label>Room Type Name</label>
-                        <input type="text" class="form-control" value="{{$roomType->name}}" name="name" required>
+                        <input type="text" class="form-control"  name="name" required>
                         @if($errors)
                             <p class="text-danger">{{$errors->first('name')}}</p>
                         @endif
@@ -21,11 +21,11 @@
 
                     <div class="form-group">
                         <label>Price</label>
-                        <input type="text" class="form-control" value="{{$roomType->price}}" name="price" required>
+                        <input type="text" class="form-control" name="price" required>
                     </div>
                     <div class="form-group">
                         <label>Description</label>
-                        <input type="text" class="form-control" value="{{$roomType->description}}" name="description" required>
+                        <input type="text" class="form-control"  name="description" required>
                     </div>
 
                     <div class="form-group">
@@ -37,7 +37,7 @@
                     </div>
 
                     <div class="form-group">
-                        <button type="submit" class="btn btn-primary">Update</button>
+                        <button type="submit" class="btn btn-primary">Create</button>
                         <a href="{{route('roomType.admin.index')}}" class="btn btn-secondary">Cancel</a>
                     </div>
                 </form>

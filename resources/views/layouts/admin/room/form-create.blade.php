@@ -13,7 +13,7 @@
                     @csrf
                     <div class="form-group">
                         <label>Room Name</label>
-                        <input type="text" class="form-control" value="" name="name">
+                        <input type="text" class="form-control" value="" name="name" required>
                         @if($errors)
                             <p class="text-danger">{{$errors->first('name')}}</p>
                         @endif
