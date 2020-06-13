@@ -28,7 +28,6 @@ class RoomTypeRepository
 
     public function save($roomType)
     {
-
         $roomType->save();
     }
 
