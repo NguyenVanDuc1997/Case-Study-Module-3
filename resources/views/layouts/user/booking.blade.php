@@ -12,10 +12,21 @@
             </div>
         </div>
     </div>
-{{--@dd($checkInDate)--}}
+    {{--@dd($checkInDate)--}}
     <section class="ftco-section">
         <div class="container">
             <div class="row justify-content-md-center">
+                @if(count($availableRoomsId) == 0)
+                    <div class="col-3 text-center">
+                        <span class="text-danger">Unavailable room in selected day</span>
+                    </div>
+            </div>
+            <div class="row justify-content-md-center">
+                <div class="col-3 text-center">
+                    <button class="btn btn-link" onclick="window.history.back();">Click here to go back</button>
+                </div>
+            </div>
+            @else
                 <form action="{{route('booking.store')}}" method="post">
                     @csrf
                     <div class="form-row">
@@ -44,9 +55,9 @@
 
                     <div class="form-group">
                         <label for="room">Room</label>
-                        <select name="room" id="room" class="form-control">
+                        <select name="room_type" id="room" class="form-control">
                             @foreach($roomTypes as $roomType)
-                                <option value="{{$roomType->id}}" <?php if ($roomTypeId== $roomType->id) {
+                                <option value="{{$roomType->id}}" <?php if ($roomTypeId == $roomType->id) {
                                     echo "selected";
                                 }?>>{{$roomType->name}}</option>
                             @endforeach
@@ -67,7 +78,8 @@
                     </div>
                     <button type="submit" class="btn btn-primary">Book</button>
                 </form>
-            </div>
+        </div>
+        @endif
         </div>
     </section>
 @endsection

@@ -6,7 +6,7 @@ namespace App\Http\Controllers;
 
 interface StatusReservationConstant
 {
-    const  VERIFIED = 2;
-    const  UNVERIFIED = 3;
+    const CONFIRMED = 2;
+    const CANCELED = 3;
     const PENDING = 1;
 }

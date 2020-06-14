@@ -14,9 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('layouts.user.home');
-})->name('home.show');
+Route::get('/', 'HomePageController@showHomePage')->name('home.show');
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('logout', function () {
@@ -55,6 +53,7 @@ Route::middleware(['auth'])->group(function () {
     Route::prefix('reservation')->group(function (){
         Route::get('/index','AdminReservationController@index')->name('reservation.admin.index');
         Route::get('/verify','AdminReservationController@verify')->name('reservation.admin.verify');
+        Route::get('/create', 'AdminReservationController@create')->name('reservation.admin.create');
     });
 });
 

@@ -30,14 +30,14 @@ class ReservationRepository
             ->get();
     }
 
-    public function getBookedReservationByRoomTypeAndDay($request)
+    public function getBookedReservationByRoomTypeAndDay($roomType, $checkIn, $checkOut)
     {
-        return $this->reservation->where('room_type_id', $request->input('room'))
-            ->where('check_in', '>=', $request->input('check_in_date'))
-            ->where('check_in', '<=', $request->input('check_out_date'))
-            ->orWhere('check_out', '>=', $request->input('check_in_date'))
-            ->where('room_type_id', $request->input('room'))
-            ->where('check_out', '<=', $request->input('check_out_date'))
+        return $this->reservation->where('room_type_id', $roomType)
+            ->where('check_in', '>=', $checkIn)
+            ->where('check_in', '<=', $checkOut)
+            ->orWhere('check_out', '>=', $checkIn)
+            ->where('room_type_id', $roomType)
+            ->where('check_out', '<=', $checkOut)
             ->get();
     }
 }

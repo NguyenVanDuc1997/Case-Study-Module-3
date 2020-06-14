@@ -1,4 +1,4 @@
-@extends('layouts.admin.master');
+@extends('layouts.admin.master')
 @section('content')
 
     <div class="container-fluid">
@@ -7,6 +7,7 @@
             <li class="breadcrumb-item"><a href="">Reservation</a></li>
             <li class="breadcrumb-item active">List</li>
         </ol>
+        <a href="{{route('reservation.admin.create')}}" class="btn btn-success mb-2">Add new reservation</a>
         <div class="card mb-4">
             <div class="card-body">
 {{--                <div class="card-header"> <a href="" class="btn btn-success">Create</a></div>--}}
@@ -34,10 +35,10 @@
                             <td>
                                 @if($reservation->status==\App\Http\Controllers\StatusReservationConstant::PENDING)
                                     Pending
-                                    @elseif($reservation->status==\App\Http\Controllers\StatusReservationConstant::VERIFIED)
-                                    Verified
-                                    @elseif($reservation->status==\App\Http\Controllers\StatusReservationConstant::UNVERIFIED)
-                                    Unverified
+                                    @elseif($reservation->status==\App\Http\Controllers\StatusReservationConstant::CONFIRMED)
+                                    Confirmed
+                                    @elseif($reservation->status==\App\Http\Controllers\StatusReservationConstant::CANCELED)
+                                    Canceled
                                 @endif
                             </td>
 
