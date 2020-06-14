@@ -51,6 +51,11 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/{id}/edit', 'RoomController@change')->name('room.change');
         Route::get('/{id}/delete','RoomController@delete')->name('room.delete');
     });
+
+    Route::prefix('reservation')->group(function (){
+        Route::get('/index','AdminReservationController@index')->name('reservation.admin.index');
+        Route::get('/verify','AdminReservationController@verify')->name('reservation.admin.verify');
+    });
 });
 
 

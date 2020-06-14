@@ -38,6 +38,7 @@
                 <h6 class="collapse-header">About</h6>
                 <a class="collapse-item" href="{{route('room.index')}}">Room</a>
                 <a class="collapse-item" href="{{route('roomType.admin.index')}}">Room Type</a>
+                <a class="collapse-item" href="{{route('reservation.admin.index')}}">Reservation</a>
             </div>
         </div>
     </li>
