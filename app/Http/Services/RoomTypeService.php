@@ -52,4 +52,9 @@ class RoomTypeService
         $this->roomTypeRepository->destroy($roomType);
     }
 
+    public function getAllRoomsByRoomTypeId($request)
+    {
+        return $this->roomTypeRepository->getAllRoomsByRoomTypeId($request->room);
+    }
+
 }

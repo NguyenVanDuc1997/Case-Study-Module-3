@@ -32,4 +32,9 @@ class RoomTypeRepository
     public function destroy($roomType){
         $roomType->delete();
     }
+
+    public function getAllRoomsByRoomTypeId($id)
+    {
+        return $this->find($id)->rooms;
+    }
 }
