@@ -31,8 +31,9 @@ class ReservationController extends Controller
 
     public function store(Request $request)
     {
-        $id = $this->customerService->store($request);
-        $this->reservationService->store($request, $id);
+        $customerId = $this->customerService->store($request);
+        $rooms = $this->roomTypeService->getAllRoomsByRoomTypeId($request);
+        $this->reservationService->store($request, $customerId, $rooms);
         toastr()->success('Your reservation has been successfully sent to the administrator.');
         return redirect('/');
     }

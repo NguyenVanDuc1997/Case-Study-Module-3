@@ -40,13 +40,7 @@
                                     Unverified
                                 @endif
                             </td>
-{{--                            <td>--}}
-{{--                                @if($reservation->image)--}}
-{{--                                    <img src="{{ asset('storage/'.$reservation->image) }}" alt="" style="width: 200px; height: 200px">--}}
-{{--                                @else--}}
-{{--                                    {{'non-image'}}--}}
-{{--                                @endif--}}
-{{--                            </td>--}}
+
                             <td>
                                 <a href="{{route('reservation.admin.verify',$reservation->id)}}" class="btn btn-primary">Verify</a>
                                 <a href="" class="btn btn-danger">Delete</a>

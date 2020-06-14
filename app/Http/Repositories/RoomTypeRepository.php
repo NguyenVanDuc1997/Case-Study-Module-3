@@ -38,4 +38,8 @@ class RoomTypeRepository
         $roomType->delete();
     }
 
+    public function getAllRoomsByRoomTypeId($id)
+    {
+        return $this->find($id)->rooms;
+    }
 }

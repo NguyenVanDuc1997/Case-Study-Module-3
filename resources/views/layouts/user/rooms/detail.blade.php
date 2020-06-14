@@ -15,7 +15,7 @@ x
                                     <div class="wrap bg-white align-self-stretch py-3 px-4">
                                         <label for="#">Check-in Date</label>
                                         <input type="date" name="check_in_date" class="form-control"
-                                               placeholder="Check-in date">
+                                               placeholder="Check-in date" value="{{ date('Y-m-d') }}">
                                     </div>
                                 </div>
                             </div>
@@ -24,7 +24,7 @@ x
                                     <div class="wrap bg-white align-self-stretch py-3 px-4">
                                         <label for="#">Check-out Date</label>
                                         <input type="date" name="check_out_date" class="form-control"
-                                               placeholder="Check-out date">
+                                               placeholder="Check-out date" value="{{ date('Y-m-d') }}">
                                     </div>
                                 </div>
                             </div>
