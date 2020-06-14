@@ -30,5 +30,4 @@ class ReservationRepository
             ->where('check_out', '<=', $request->input('check_out_date'))
             ->get();
     }
-
 }
