@@ -19,6 +19,7 @@ class AdminRoomTypeController extends Controller
 
     public function index()
     {
+
         $roomTypes = $this->roomTypeService->getAll();
         return view('layouts.admin.room-type.index', compact('roomTypes'));
     }

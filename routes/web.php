@@ -18,7 +18,8 @@ Route::get('/', function () {
     return view('layouts.user.home');
 })->name('home.show');
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
+
 Route::get('logout', function () {
     Auth::logout();
     return view('auth.login');
@@ -35,6 +36,8 @@ Route::post('booking', "ReservationController@store")->name('booking.store');
 Auth::routes();
 
 Route::middleware(['auth'])->group(function () {
+    Route::get('/home', 'AdminRoomTypeController@index')->name('home');
+
     Route::prefix('room-types')->group(function () {
         Route::get('/', "AdminRoomTypeController@index")->name('roomType.admin.index');
         Route::get('/{id}/edit','AdminRoomTypeController@edit')->name('roomType.admin.edit');

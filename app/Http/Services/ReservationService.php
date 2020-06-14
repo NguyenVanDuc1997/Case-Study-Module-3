@@ -22,6 +22,7 @@ class ReservationService
     {
         $bookedReservations = $this->reservationRepository->getBookedReservationByRoomTypeAndDay($request);
         $availableRooms = [];
+        array_push($availableRooms,$rooms);
         foreach ($rooms as $room) {
             foreach ($bookedReservations as $bookedReservation) {
                 if ($room->id != $bookedReservation->room_id) {
@@ -32,7 +33,7 @@ class ReservationService
 
         $reservation = new Reservation();
         $customer_id = $id;
-        $reservation->customer_id =$customer_id;
+        $reservation->customer_id = $customer_id;
         $reservation->room_type_id = $request->input('room');
         $reservation->room_id = $availableRooms[0]->id;
 
@@ -42,7 +43,8 @@ class ReservationService
         $this->reservationRepository->store($reservation);
     }
 
-    public function getAll(){
+    public function getAll()
+    {
         return $this->reservationRepository->getAll();
     }
 

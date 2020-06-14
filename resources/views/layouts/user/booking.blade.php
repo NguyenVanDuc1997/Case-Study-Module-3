@@ -21,25 +21,25 @@
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="last_name">Last name</label>
-                            <input type="text" name="last_name" class="form-control" id="last_name">
+                            <input type="text" name="last_name" class="form-control" id="last_name" required>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="first_name">First name</label>
-                            <input type="text" name="first_name" class="form-control" id="first_name">
+                            <input type="text" name="first_name" class="form-control" id="first_name" required>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="phone">Phone</label>
-                        <input type="text" class="form-control" id="phone" name="phone">
+                        <input type="text" class="form-control" id="phone" name="phone" required>
                     </div>
                     <div class="form-group">
                         <label for="personal_id">Personal id</label>
-                        <input type="text" class="form-control" id="personal_id" name="personal_id">
+                        <input type="text" class="form-control" id="personal_id" name="personal_id" required>
                     </div>
 
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="email" class="form-control" id="email" name="email">
+                        <input type="email" class="form-control" id="email" name="email" required>
                     </div>
 
                     <div class="form-group">
@@ -57,12 +57,12 @@
                         <div class="form-group col-md-6">
                             <label>Check-in</label>
                             <input type="date" name="check_in_date" value="{{$checkInDate}}" class="form-control"
-                                   placeholder="Check-in date">
+                                   placeholder="Check-in date" required>
                         </div>
                         <div class="form-group col-md-6">
                             <label>Check-out</label>
                             <input type="date" name="check_out_date" value="{{$checkOutDate}}" class="form-control"
-                                   placeholder="Check-out date">
+                                   placeholder="Check-out date" required>
                         </div>
                     </div>
                     <button type="submit" class="btn btn-primary">Book</button>
