@@ -18,6 +18,7 @@ class CustomerRepository
 
     public function store($customer)
     {
+
         $customer->save();
         return $customer->id;
     }

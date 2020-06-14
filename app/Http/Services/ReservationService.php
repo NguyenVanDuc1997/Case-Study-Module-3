@@ -32,13 +32,18 @@ class ReservationService
 
         $reservation = new Reservation();
         $customer_id = $id;
-        $reservation->customer_id = $customer_id;
+        $reservation->customer_id =$customer_id;
         $reservation->room_type_id = $request->input('room');
         $reservation->room_id = $availableRooms[0]->id;
+
         $reservation->check_in = $request->input('check_in_date');
         $reservation->check_out = $request->input('check_out_date');
+
         $this->reservationRepository->store($reservation);
     }
 
+    public function getAll(){
+        return $this->reservationRepository->getAll();
+    }
 
 }
