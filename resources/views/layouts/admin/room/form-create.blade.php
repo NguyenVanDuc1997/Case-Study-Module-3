@@ -7,13 +7,13 @@
             <li class="breadcrumb-item active">Create</li>
         </ol>
         <div class="card mb-4">
-            <div class="card-header"><i class="fas fa-table mr-1"></i></div>
+            <div class="card-header"></div>
             <div class="card-body">
                 <form method="post" action="{{route('room.create-room')}}" >
                     @csrf
                     <div class="form-group">
                         <label>Room Name</label>
-                        <input type="text" class="form-control" value="" name="name">
+                        <input type="text" class="form-control" value="" name="name" required>
                         @if($errors)
                             <p class="text-danger">{{$errors->first('name')}}</p>
                         @endif
@@ -21,12 +21,11 @@
                     <div class="form-group">
                         <label>Type Room</label>
                         <select class="form-control" name="type">
-                            <option value="1">Suite Room</option>
-                            <option value="2">Classic Room</option>
-                            <option value="3">Family Room</option>
-                            <option value="4">Deluxe Room</option>
-                            <option value="5">Luxury Room</option>
-                            <option value="6">Superior Room</option>
+                            @foreach($roomTypes as $value)
+
+                                <option value="{{$value->id}}"
+                                        >{{$value->name}}</option>
+                            @endforeach
                         </select>
                     </div>
                     <div class="form-group">

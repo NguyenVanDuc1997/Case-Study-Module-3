@@ -9,6 +9,7 @@
         </ol>
         <div class="card mb-4">
             <div class="card-body">
+                <div class="card-header"> <a href="{{route('roomType.admin.create')}}" class="btn btn-success">Create</a></div>
                 <table class="table table-bordered clone2" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                     <tr>
