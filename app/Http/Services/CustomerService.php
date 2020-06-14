@@ -23,6 +23,7 @@ class CustomerService
         $customer->first_name = $request->input('first_name');
         $customer->phone = $request->input('phone');
         $customer->personal_id = $request->input('personal_id');
+        $customer->user_id=null;
         $customer->email = $request->input('email');
         return $this->customerRepository->store($customer);
     }
