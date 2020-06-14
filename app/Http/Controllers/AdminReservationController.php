@@ -19,4 +19,8 @@ class AdminReservationController extends Controller
         $reservations=$this->reservation->getAll();
         return view('layouts.admin.reservation.index',compact('reservations'));
     }
+
+    public function verify($id){
+
+    }
 }

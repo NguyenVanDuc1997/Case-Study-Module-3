@@ -48,7 +48,7 @@
 {{--                                @endif--}}
 {{--                            </td>--}}
                             <td>
-                                <a href="" class="btn btn-primary">Verify</a>
+                                <a href="{{route('reservation.admin.verify',$reservation->id)}}" class="btn btn-primary">Verify</a>
                                 <a href="" class="btn btn-danger">Delete</a>
                             </td>
                         </tr>
