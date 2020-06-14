@@ -22,11 +22,16 @@ class ReservationService
     {
         $bookedReservations = $this->reservationRepository->getBookedReservationByRoomTypeAndDay($request);
         $availableRooms = [];
-        array_push($availableRooms,$rooms);
-        foreach ($rooms as $room) {
-            foreach ($bookedReservations as $bookedReservation) {
-                if ($room->id != $bookedReservation->room_id) {
-                    array_push($availableRooms, $room);
+
+        if (count($bookedReservations) == 0) {
+            $availableRooms = $rooms;
+        } else {
+            for ($i = 0; $i < count($rooms); $i++) {
+                for ($j = 0; $j < count($bookedReservations); $j++) {
+                    if ($rooms[$i]->id != $bookedReservations[$j]->room_id) {
+                        array_push($availableRooms, $rooms[$i]);
+                    }
+
                 }
             }
         }
@@ -48,4 +53,15 @@ class ReservationService
         return $this->reservationRepository->getAll();
     }
 
+    public function getById($id){
+       return $this->reservationRepository->getById($id);
+    }
+
+    public function verify($reservation){
+        $reservation->status=2;
+        $this->reservationRepository->store($reservation);
+    }
+
+    public function destroy($reservation){
+    }
 }

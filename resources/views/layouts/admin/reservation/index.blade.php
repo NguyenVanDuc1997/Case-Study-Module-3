@@ -19,7 +19,9 @@
                         <th>Email</th>
                         <th>Phone</th>
                         <th>ID Card</th>
+                        <th>Room Id</th>
                         <th>Status</th>
+
                     </tr>
                     </thead>
                     <tfoot id="data-users">
@@ -31,6 +33,8 @@
                             <td>{{ $reservation->email}}</td>
                             <td>{{ $reservation->phone}}</td>
                             <td>{{ $reservation->personal_id}}</td>
+                            <td>{{ $reservation->room_id}}</td>
+
                             <td>
                                 @if($reservation->status==\App\Http\Controllers\StatusReservationConstant::PENDING)
                                     Pending
@@ -43,7 +47,7 @@
 
                             <td>
                                 <a href="{{route('reservation.admin.verify',$reservation->id)}}" class="btn btn-primary">Verify</a>
-                                <a href="" class="btn btn-danger">Delete</a>
+                                <a href="{{route('reservation.admin.destroy',$reservation->id)}}" class="btn btn-danger">Delete</a>
                             </td>
                         </tr>
                     @endforeach

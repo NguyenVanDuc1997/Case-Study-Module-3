@@ -57,7 +57,8 @@ Route::middleware(['auth'])->group(function () {
 
     Route::prefix('reservation')->group(function (){
         Route::get('/index','AdminReservationController@index')->name('reservation.admin.index');
-        Route::get('/verify','AdminReservationController@verify')->name('reservation.admin.verify');
+        Route::get('/{id}/verify','AdminReservationController@verify')->name('reservation.admin.verify');
+        Route::get('/{id}/delete','AdminReservationController@destroy')->name('reservation.admin.destroy');
     });
 });
 

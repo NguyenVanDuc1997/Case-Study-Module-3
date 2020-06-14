@@ -26,6 +26,8 @@ class CustomerService
         $customer->user_id=null;
         $customer->email = $request->input('email');
         return $this->customerRepository->store($customer);
+        //$this->customerRepository->store($customer);
+        //return $customer->id;
     }
 
 }
