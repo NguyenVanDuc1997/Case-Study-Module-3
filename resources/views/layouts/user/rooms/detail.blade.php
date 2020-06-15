@@ -8,7 +8,7 @@ x
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 pr-1 aside-stretch">
-                    <form action="{{route('booking.create')}}" method="get" class="booking-form">
+                    <form action="{{route('booking.create',$room->id)}}" method="get" class="booking-form">
                         <div class="row">
                             <div class="col-md d-flex py-md-4">
                                 <div class="form-group align-self-stretch d-flex align-items-end">
@@ -43,6 +43,7 @@ x
                                                         }?>>{{$roomType->name}}</option>
                                                     @endforeach
                                                 </select>
+
                                             </div>
                                         </div>
                                     </div>

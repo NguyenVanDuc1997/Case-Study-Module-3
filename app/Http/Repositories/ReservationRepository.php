@@ -24,11 +24,7 @@ class ReservationRepository
 
     public function getAll()
     {
-        return DB::table('reservations')
-            ->join('customers', 'reservations.customer_id', '=', 'customers.id')
-            ->join('rooms', 'reservations.room_id', '=', 'rooms.id')
-            ->join('room_types', 'rooms.room_type_id', '=', 'room_types.id')
-            ->get();
+        return $this->reservation->all();
     }
 
     public function getBookedReservationByRoomTypeAndDay($request)
@@ -45,5 +41,9 @@ class ReservationRepository
     public function getById($id)
     {
         return $this->reservation->findOrFail($id);
+    }
+
+    public function destroy($reservation){
+        $reservation->delete();
     }
 }

@@ -14,39 +14,43 @@
                     <thead>
                     <tr>
                         <th>STT</th>
-                        <th>Room Type</th>
-                        <th>Full Name</th>
-                        <th>Email</th>
-                        <th>Phone</th>
-                        <th>ID Card</th>
+                        <th>Booking Code</th>
+                        <th>Customer</th>
                         <th>Room Id</th>
+                        <th>Check In</th>
+                        <th>Check Out</th>
                         <th>Status</th>
-
+                        <th></th>
                     </tr>
                     </thead>
                     <tfoot id="data-users">
                     @foreach($reservations as $key => $reservation)
                         <tr>
                             <td>{{ ++$key }}</td>
-                            <td>{{ $reservation->name }}</td>
-                            <td>{{ $reservation->first_name.' '.$reservation->last_name}}</td>
-                            <td>{{ $reservation->email}}</td>
-                            <td>{{ $reservation->phone}}</td>
-                            <td>{{ $reservation->personal_id}}</td>
-                            <td>{{ $reservation->room_id}}</td>
+                            <td><a href="">Booking-{{ $reservation->id }}</a></td>
+                            <td><a href="">KH-{{ $reservation->customer->id }}</a></td>
+                            <td>
+                                <select id="reservation-{{$reservation->id}}" class="form-control">
+                                    @foreach($rooms as $room)
+                                        <option value="{{$room->id}}">{{$room->id.'-'.$room->name}}</option>
+                                    @endforeach
+                                </select>
+                            </td>
+                            <td>{{ $reservation->check_in}}</td>
+                            <td>{{ $reservation->check_out}}</td>
 
                             <td>
                                 @if($reservation->status==\App\Http\Controllers\StatusReservationConstant::PENDING)
                                     Pending
                                     @elseif($reservation->status==\App\Http\Controllers\StatusReservationConstant::VERIFIED)
-                                    Verified
+                                    <p class="text-success">Verified</p>
                                     @elseif($reservation->status==\App\Http\Controllers\StatusReservationConstant::UNVERIFIED)
                                     Unverified
                                 @endif
                             </td>
 
                             <td>
-                                <a href="{{route('reservation.admin.verify',$reservation->id)}}" class="btn btn-primary">Verify</a>
+                                <button class="btn btn-primary verify-booking" data-id="{{ $reservation->id }}">Verify</button>
                                 <a href="{{route('reservation.admin.destroy',$reservation->id)}}" class="btn btn-danger">Delete</a>
                             </td>
                         </tr>

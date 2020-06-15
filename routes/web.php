@@ -14,6 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/debug', function () {
+    return view('debug');
+});
+
 Route::get('/', function () {
     return view('layouts.user.home');
 })->name('home.show');
@@ -46,8 +50,9 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/create','AdminRoomTypeController@create')->name('roomType.admin.create');
         Route::post('/create','AdminRoomTypeController@store')->name('roomType.admin.store');
     });
-    Route::prefix('room')->group(function () {
-        Route::get('/index','RoomController@index')->name('room.index');
+
+    Route::prefix('rooms')->group(function () {
+        Route::get('/','RoomController@index')->name('room.index');
         Route::get('/create', 'RoomController@showFormCreate')->name('room.show-form-create');
         Route::post('/create', 'RoomController@create')->name('room.create-room');
         Route::get('/{id}/edit', 'RoomController@edit')->name('room.edit');
@@ -55,8 +60,8 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/{id}/delete','RoomController@delete')->name('room.delete');
     });
 
-    Route::prefix('reservation')->group(function (){
-        Route::get('/index','AdminReservationController@index')->name('reservation.admin.index');
+    Route::prefix('reservations')->group(function (){
+        Route::get('/','AdminReservationController@index')->name('reservation.admin.index');
         Route::get('/{id}/verify','AdminReservationController@verify')->name('reservation.admin.verify');
         Route::get('/{id}/delete','AdminReservationController@destroy')->name('reservation.admin.destroy');
     });

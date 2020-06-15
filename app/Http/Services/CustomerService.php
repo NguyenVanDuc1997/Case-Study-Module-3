@@ -30,4 +30,8 @@ class CustomerService
         //return $customer->id;
     }
 
+    public function destroy($id){
+        $this->customerRepository;
+    }
+
 }

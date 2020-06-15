@@ -63,5 +63,6 @@ class ReservationService
     }
 
     public function destroy($reservation){
+        $this->reservationRepository->destroy($reservation);
     }
 }
