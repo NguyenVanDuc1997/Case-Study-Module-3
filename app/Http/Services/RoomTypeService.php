@@ -50,6 +50,7 @@ class RoomTypeService
 
     public function getAllRoomsByRoomTypeId($request)
     {
+
         return $this->roomTypeRepository->getAllRoomsByRoomTypeId($request->room_type);
     }
 }

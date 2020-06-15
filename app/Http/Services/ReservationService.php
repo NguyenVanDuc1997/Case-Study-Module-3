@@ -20,19 +20,66 @@ class ReservationService
 
     public function store($request, $id, $rooms)
     {
+
+//        $bookedReservations = $this->reservationRepository->getBookedReservationByRoomTypeAndDay($request);
+//        $availableRooms = [];
+//
+//        if (count($bookedReservations) == 0) {
+//            $availableRooms = $rooms;
+//        } else {
+//            for ($i = 0; $i < count($rooms); $i++) {
+//                for ($j = 0; $j < count($bookedReservations); $j++) {
+//                    if ($rooms[$i]->id != $bookedReservations[$j]->room_id) {
+//                        array_push($availableRooms, $rooms[$i]);
+//                    }
+//
+//                }
+//            }
+//        }
+//
+//        $reservation = new Reservation();
+//        $customer_id = $id;
+//        $reservation->customer_id = $customer_id;
+//        $reservation->room_type_id = $request->input('room');
+//        $reservation->room_id = $availableRooms[0]->id;
+
+
         $availableRoomsId = $this->getAvailableRooms($request, $rooms);
+
+        if ($availableRoomsId == null) {
+            return $availableRoomsId;
+        }
         $reservation = new Reservation();
         $customer_id = $id;
-        $reservation->customer_id =$customer_id;
+        $reservation->customer_id = $customer_id;
         $reservation->room_type_id = $request->input('room_type');
         $reservation->room_id = $availableRoomsId[0];
+
         $reservation->check_in = $request->input('check_in_date');
         $reservation->check_out = $request->input('check_out_date');
         $this->reservationRepository->store($reservation);
     }
 
-    public function getAll(){
+    public function getAll()
+    {
         return $this->reservationRepository->getAll();
+    }
+
+
+    public function getById($id)
+    {
+        return $this->reservationRepository->getById($id);
+    }
+
+    public function verify($reservation)
+    {
+        $reservation->status = 2;
+        $this->reservationRepository->store($reservation);
+    }
+
+    public function destroy($reservation)
+    {
+        $this->reservationRepository->destroy($reservation);
     }
 
     public function getBookedReservationByRoomTypeAndDay($roomType, $checkIn, $checkOut)
@@ -65,5 +112,6 @@ class ReservationService
             return $availableRoomsId;
         }
     }
+
 
 }
