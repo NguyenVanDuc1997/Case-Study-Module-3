@@ -26,7 +26,9 @@ class ReservationController extends Controller
         $checkOutDate = $request->input('check_out_date');
         $roomTypeId = $request->input('room_type');
         $roomTypes = $this->roomTypeService->getAll();
-        return view('layouts.user.booking', compact(['checkInDate', 'checkOutDate', 'roomTypeId', 'roomTypes']));
+        $rooms = $this->roomTypeService->getAllRoomsByRoomTypeId($request);
+        $availableRoomsId = $this->reservationService->getAvailableRooms($request, $rooms);
+        return view('layouts.user.booking', compact(['checkInDate', 'checkOutDate', 'roomTypeId', 'roomTypes', 'availableRoomsId']));
     }
 
     public function store(Request $request)

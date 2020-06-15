@@ -42,13 +42,14 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12 pr-1 aside-stretch">
-                <form action="#" class="booking-form">
+                <form action="{{route('booking.create')}}" method="get" class="booking-form">
                     <div class="row">
                         <div class="col-md d-flex py-md-4">
                             <div class="form-group align-self-stretch d-flex align-items-end">
                                 <div class="wrap bg-white align-self-stretch py-3 px-4">
                                     <label for="#">Check-in Date</label>
-                                    <input type="text" class="form-control checkin_date" placeholder="Check-in date">
+                                    <input type="date" name="check_in_date" class="form-control"
+                                           placeholder="Check-in date" value="{{ date('Y-m-d') }}">
                                 </div>
                             </div>
                         </div>
@@ -56,7 +57,8 @@
                             <div class="form-group align-self-stretch d-flex align-items-end">
                                 <div class="wrap bg-white align-self-stretch py-3 px-4">
                                     <label for="#">Check-out Date</label>
-                                    <input type="text" class="form-control checkout_date" placeholder="Check-out date">
+                                    <input type="date" name="check_out_date" class="form-control"
+                                           placeholder="Check-out date" value="{{ date('Y-m-d') }}">
                                 </div>
                             </div>
                         </div>
@@ -67,13 +69,11 @@
                                     <div class="form-field">
                                         <div class="select-wrap">
                                             <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                                            <select name="" id="" class="form-control">
-                                                <option value="">Suite</option>
-                                                <option value="">Family Room</option>
-                                                <option value="">Deluxe Room</option>
-                                                <option value="">Classic Room</option>
-                                                <option value="">Superior Room</option>
-                                                <option value="">Luxury Room</option>
+                                            <select name="room_type" id="" class="form-control">
+                                                @foreach($roomTypes as $roomType)
+                                                    <option
+                                                        value="{{$roomType->id}}">{{$roomType->name}}</option>
+                                                @endforeach
                                             </select>
                                         </div>
                                     </div>
@@ -102,7 +102,9 @@
                         </div>
                         <div class="col-md d-flex">
                             <div class="form-group d-flex align-self-stretch">
-                                <a href="#" class="btn btn-black py-5 py-md-3 px-4 align-self-stretch d-block"><span>Check Availability <small>Best Price Guaranteed!</small></span></a>
+                                <button type="submit"
+                                        class="btn btn-black py-5 py-md-3 px-4 align-self-stretch d-block"><span>Check Availability <small>Best Price Guaranteed!</small></span>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -251,93 +253,21 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6">
-                <div class="room-wrap d-md-flex">
-                    <a href="#" class="img" style="background-image: url({{asset('images/room-1.jpg')}});"></a>
-                    <div class="half left-arrow d-flex align-items-center">
-                        <div class="text p-4 p-xl-5 text-center">
-                            <p class="star mb-0"><span class="ion-ios-star"></span><span
-                                    class="ion-ios-star"></span><span class="ion-ios-star"></span><span
-                                    class="ion-ios-star"></span><span class="ion-ios-star"></span></p>
-                            <p class="mb-0"><span class="price mr-1">$120.00</span> <span class="per">per night</span>
-                            </p>
-                            <h3 class="mb-3"><a href="rooms.html">Suite Room</a></h3>
-                            <p class="pt-1"><a href="room-single.html" class="btn-custom px-3 py-2">View Room Details
-                                    <span class="icon-long-arrow-right"></span></a></p>
+            @foreach($roomTypes as $roomType)
+                <div class="col-lg-6">
+                    <div class="room-wrap d-md-flex">
+                        <a href="{{route('roomType.show-detail', ["$roomType->id"])}}" class="img" style="background-image: url({{asset("storage/" .$roomType->image)}});"></a>
+                        <div class="half left-arrow d-flex align-items-center">
+                            <div class="text p-4 p-xl-5 text-center">
+                                <p class="star mb-0"><span class="ion-ios-star"></span><span class="ion-ios-star"></span><span class="ion-ios-star"></span><span class="ion-ios-star"></span><span class="ion-ios-star"></span></p>
+                                <p class="mb-0"><span class="price mr-1">${{$roomType->price}}</span> <span class="per">per night</span></p>
+                                <h3 class="mb-3"><a href="{{route('roomType.show-detail', ["$roomType->id"])}}">{{$roomType->name}}</a></h3>
+                                <p class="pt-1"><a href="{{route('roomType.show-detail', [ "$roomType->id"])}}" class="btn-custom px-3 py-2">View Room Details <span class="icon-long-arrow-right"></span></a></p>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="col-lg-6">
-                <div class="room-wrap d-md-flex">
-                    <a href="#" class="img order-md-last" style="background-image: url({{asset('images/room-2.jpg')}});"></a>
-                    <div class="half right-arrow d-flex align-items-center">
-                        <div class="text p-4 p-xl-5 text-center">
-                            <p class="star mb-0"><span class="ion-ios-star"></span><span
-                                    class="ion-ios-star"></span><span class="ion-ios-star"></span><span
-                                    class="ion-ios-star"></span><span class="ion-ios-star"></span></p>
-                            <p class="mb-0"><span class="price mr-1">$120.00</span> <span class="per">per night</span>
-                            </p>
-                            <h3 class="mb-3"><a href="rooms.html">Family Room</a></h3>
-                            <p class="pt-1"><a href="room-single.html" class="btn-custom px-3 py-2">View Room Details
-                                    <span class="icon-long-arrow-right"></span></a></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="room-wrap d-md-flex">
-                    <a href="#" class="img order-md-last" style="background-image: url({{asset('images/room-3.jpg')}});"></a>
-                    <div class="half right-arrow d-flex align-items-center">
-                        <div class="text p-4 p-xl-5 text-center">
-                            <p class="star mb-0"><span class="ion-ios-star"></span><span
-                                    class="ion-ios-star"></span><span class="ion-ios-star"></span><span
-                                    class="ion-ios-star"></span><span class="ion-ios-star"></span></p>
-                            <p class="mb-0"><span class="price mr-1">$120.00</span> <span class="per">per night</span>
-                            </p>
-                            <h3 class="mb-3"><a href="rooms.html">Deluxe Room</a></h3>
-                            <p class="pt-1"><a href="room-single.html" class="btn-custom px-3 py-2">View Room Details
-                                    <span class="icon-long-arrow-right"></span></a></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-6">
-                <div class="room-wrap d-md-flex">
-                    <a href="#" class="img" style="background-image: url({{asset('images/room-4.jpg')}});"></a>
-                    <div class="half left-arrow d-flex align-items-center">
-                        <div class="text p-4 p-xl-5 text-center">
-                            <p class="star mb-0"><span class="ion-ios-star"></span><span
-                                    class="ion-ios-star"></span><span class="ion-ios-star"></span><span
-                                    class="ion-ios-star"></span><span class="ion-ios-star"></span></p>
-                            <p class="mb-0"><span class="price mr-1">$120.00</span> <span class="per">per night</span>
-                            </p>
-                            <h3 class="mb-3"><a href="rooms.html">Luxury Room</a></h3>
-                            <p class="pt-1"><a href="room-single.html" class="btn-custom px-3 py-2">View Room Details
-                                    <span class="icon-long-arrow-right"></span></a></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="room-wrap d-md-flex">
-                    <a href="#" class="img" style="background-image: url({{asset('images/room-6.jpg')}});"></a>
-                    <div class="half left-arrow d-flex align-items-center">
-                        <div class="text p-4 p-xl-5 text-center">
-                            <p class="star mb-0"><span class="ion-ios-star"></span><span
-                                    class="ion-ios-star"></span><span class="ion-ios-star"></span><span
-                                    class="ion-ios-star"></span><span class="ion-ios-star"></span></p>
-                            <p class="mb-0"><span class="price mr-1">$120.00</span> <span class="per">per night</span>
-                            </p>
-                            <h3 class="mb-3"><a href="rooms.html">Superior Room</a></h3>
-                            <p class="pt-1"><a href="room-single.html" class="btn-custom px-3 py-2">View Room Details
-                                    <span class="icon-long-arrow-right"></span></a></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </section>

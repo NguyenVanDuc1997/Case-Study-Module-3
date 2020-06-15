@@ -104,7 +104,7 @@ x
                             </div>
                         </div>
                         <div class="col-md-12 room-single mt-4 mb-5 ftco-animate">
-                            <h2 class="mb-4">{{$room->name}} <span>- (10 Available rooms)</span></h2>
+                            <h2 class="mb-4">{{$room->name}} <span></span></h2>
                             <p>{{$room->description}}</p>
                             <div class="d-md-flex mt-5 mb-5">
                                 <ul class="list">
